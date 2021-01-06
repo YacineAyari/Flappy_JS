@@ -11,7 +11,7 @@ export default function App() {
 
   //Define Gamelogic information
   const refreshInterval = 1000/40 //number of fps 30 refresh in 1000 milliseconds
-  const gravity = 3
+  const gravity = 4
   let gameTimerID
   let pipesTimerId
   
