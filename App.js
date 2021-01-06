@@ -27,54 +27,56 @@ export default function App() {
 
 
   //Set Gravity on Bird using React Native Useeffect 
-  useEffect(() => {
-     if(birdBottom > 0 ){
-       gameTimerID =  setInterval(() => {
-          setBirdbottom(birdBottom => birdBottom - gravity)
-          //console.log(birdBottom)
-       },30)
+//   useEffect(() => {
+//      if(birdBottom > 0 ){
+//        gameTimerID =  setInterval(() => {
+//           setBirdbottom(birdBottom => birdBottom - gravity)
+//           //console.log(birdBottom)
+//        },30)
 
-       return () => {
-         clearInterval(gameTimerID)
-       }
+//        return () => {
+//          clearInterval(gameTimerID)
+//        }
 
-     }
-  },[birdBottom])
+//      }
+//   },[birdBottom])
 
-useEffect(() => {
-  if(pipesPosX > 0){
-    pipesTimerId =  setInterval(() => {
-      setPipesPosX(pipesPosX => pipesPosX - 5)
-      console.log(pipesPosX)
-    },30)
-  }
+// useEffect(() => {
+//   if(pipesPosX > 0){
+//     pipesTimerId =  setInterval(() => {
+//       setPipesPosX(pipesPosX => pipesPosX - 5)
+//       console.log(pipesPosX)
+//     },30)
+//   }
 
-  return () => {
-    clearInterval(pipesTimerId)
-  }
+//   return () => {
+//     clearInterval(pipesTimerId)
+//   }
 
-},[pipesPosX])
+// },[pipesPosX])
 
 
   //Gameloop
-  // useEffect(() => {
-  //   gameTimerID = setInterval(() => { //Every object must run and move at the same interval
+  useEffect(() => {
+    gameTimerID = setInterval(() => { //Every object must run and move at the same interval
       
-  //     //Apply Gravity on Bird using useEffect 
-  //     if(birdBottom > 0){
-  //       setBirdbottom(birdBottom => birdBottom - gravity)
-  //       console.log(birdBottom)
-  //     }
-  //     //Apply mouvement to pipes
+      //Apply Gravity on Bird using useEffect 
+      if(birdBottom > 0){
+        setBirdbottom(birdBottom => birdBottom - gravity)
+        console.log(birdBottom)
+      }
+      //Apply mouvement to pipes
+      if(pipesPosX > 0){
+        setPipesPosX(pipesPosX => pipesPosX -5)
+        console.log(pipesPosX)
+      }
+    }, refreshInterval)
 
-    
-  //   }, refreshInterval)
+    return () => {
+      clearInterval(gameTimerID)
+    }
 
-  //   return () => {
-  //     clearInterval(gameTimerID)
-  //   }
-
-  // },[birdBottom])
+  },[birdBottom, pipesPosX])
 
 
   //console.log(screenWidth,screenHeight)
