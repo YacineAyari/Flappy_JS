@@ -10,7 +10,7 @@ export default function App() {
   const screenHeight = Dimensions.get("screen").height
 
   //Define Gamelogic information
-  const refreshInterval = 1000/60 //number of fps 30 refresh in 1000 milliseconds
+  const refreshInterval = 1000/40 //number of fps 30 refresh in 1000 milliseconds
   const gravity = 3
   let gameTimerID
   let pipesTimerId
